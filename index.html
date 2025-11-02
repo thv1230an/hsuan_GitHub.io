@@ -4,6 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>🌷 Ann's Space</title>
+
+  <!-- Google 字型 -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
   <style>
     body {
       font-family: "Noto Sans TC", "Pretendard", sans-serif;
@@ -24,6 +31,7 @@
       text-align: center;
       max-width: 340px;
       transition: 0.3s;
+      cursor: pointer;
     }
 
     .card:hover {
@@ -50,6 +58,12 @@
       padding: 4px 10px;
       font-size: 13px;
       margin-top: 8px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .tag:hover {
+      background: #d9718c;
+      color: #fff;
     }
 
     .links {
@@ -89,5 +103,32 @@
 
     <footer>© 2025 Haru</footer>
   </div>
+
+  <script>
+    $(document).ready(function() {
+      // 卡片淡入動畫
+      $(".card").hide().fadeIn(1000);
+
+      // 卡片滑鼠移入變色
+      $(".card").hover(
+        function() {
+          $(this).css("background-color", "#fff0f5");
+        },
+        function() {
+          $(this).css("background-color", "#ffffff");
+        }
+      );
+
+      // 點擊標籤切換文字
+      $(".tag").click(function() {
+        if ($(this).text() === "#daily #design #study") {
+          $(this).text("#fun #coding #love");
+        } else {
+          $(this).text("#daily #design #study");
+        }
+      });
+    });
+  </script>
 </body>
 </html>
+
